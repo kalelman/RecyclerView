@@ -3,8 +3,10 @@ package com.example.erickrojasperez.recyclerview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -34,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.my_recycler_view_id);
         mLayoutManager = new LinearLayoutManager(this);
+        //Constructor para definir el RecyclerView en forma de cuadricula (nota: el entero define numero de columnas)
+        //mLayoutManager = new GridLayoutManager(this, 2);
+        //mLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+
         mAdapter = new RecyclerAdapter(names, R.layout.recycler_view_item, new RecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(String name, int position) {
